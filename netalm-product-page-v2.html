@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NETALM — Flexigo 150</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red:        #D42B2B;
+  --red-hover:  #E63535;
+  --graphite:   #2B2B2E;
+  --gray-dark:  #4A4A4F;
+  --gray-mid:   #7A7A80;
+  --gray-light: #C4C4CA;
+  --gray-line:  #E4E4E8;
+  --surface:    #F7F7F8;
+  --white:      #FFFFFF;
+  --font-d: 'Rajdhani', sans-serif;
+  --font-b: 'Exo 2', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-b); background: var(--white); color: var(--graphite); overflow-x: hidden; }
+
+/* ── HEADER ── */
+header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-line);
+  height: 66px;
+  display: flex; align-items: center;
+  padding: 0 52px; gap: 48px;
+}
+.logo { text-decoration: none; display: flex; flex-direction: column; gap: 2px; flex-shrink: 0; }
+.logo-name { font-family: var(--font-d); font-weight: 700; font-size: 24px; letter-spacing: 0.1em; color: var(--graphite); line-height: 1; }
+.logo-name em { color: var(--red); font-style: normal; }
+.logo-sub { font-size: 8.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray-mid); }
+nav { display: flex; gap: 28px; }
+nav a {
+  font-family: var(--font-d); font-weight: 500; font-size: 13px;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--gray-dark); text-decoration: none;
+  transition: color 0.18s; position: relative; padding-bottom: 2px;
+}
+nav a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: var(--red); transition: width 0.22s; }
+nav a:hover { color: var(--graphite); }
+nav a:hover::after { width: 100%; }
+.nav-cta {
+  margin-left: auto;
+  font-family: var(--font-d); font-weight: 700; font-size: 12px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  background: var(--red); color: var(--white);
+  border: none; padding: 10px 24px; cursor: pointer;
+  text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+  transition: background 0.18s;
+}
+.nav-cta:hover { background: var(--red-hover); }
+
+/* ── BREADCRUMB ── */
+.breadcrumb {
+  margin-top: 66px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--gray-line);
+  padding: 11px 52px;
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--font-d); font-weight: 500;
+  font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--gray-mid);
+}
+.breadcrumb a { color: var(--gray-mid); text-decoration: none; transition: color 0.18s; }
+.breadcrumb a:hover { color: var(--red); }
+.breadcrumb .sep { color: var(--gray-light); }
+.breadcrumb .cur { color: var(--graphite); }
+
+/* ── HERO ── */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: calc(100vh - 90px);
+  background: var(--white);
+}
+.hero-left {
+  padding: 80px 64px 80px 52px;
+  display: flex; flex-direction: column; justify-content: center;
+  border-right: 1px solid var(--gray-line);
+  position: relative;
+}
+.hero-left::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 3px; background: var(--red);
+}
+.product-tag {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--font-d); font-weight: 600;
+  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--red); margin-bottom: 20px;
+}
+.product-tag::before { content: ''; width: 24px; height: 2px; background: var(--red); }
+.hero-title {
+  font-family: var(--font-d); font-weight: 700;
+  font-size: 60px; line-height: 0.95; letter-spacing: 0.02em;
+  color: var(--graphite); margin-bottom: 6px;
+}
+.hero-title .model { color: var(--red); display: block; }
+.hero-series {
+  font-family: var(--font-d); font-weight: 400;
+  font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gray-mid); margin-bottom: 36px;
+}
+.hero-desc {
+  font-size: 15px; line-height: 1.85;
+  color: var(--gray-dark);
+  max-width: 440px;
+  border-left: 2px solid var(--gray-line);
+  padding-left: 20px;
+  margin-bottom: 52px;
+}
+.hero-actions { display: flex; gap: 12px; align-items: center; }
+.btn-red {
+  font-family: var(--font-d); font-weight: 700;
+  font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
+  background: var(--red); color: var(--white);
+  border: 1px solid transparent; padding: 14px 30px;
+  cursor: pointer; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: background 0.18s;
+}
+.btn-red:hover { background: var(--red-hover); }
+.btn-outline {
+  font-family: var(--font-d); font-weight: 600;
+  font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+  background: transparent; color: var(--graphite);
+  border: 1px solid var(--gray-light); padding: 14px 28px;
+  cursor: pointer; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: border-color 0.18s, color 0.18s;
+}
+.btn-outline:hover { border-color: var(--graphite); color: var(--graphite); }
+
+/* Hero right — image placeholder */
+.hero-right {
+  background: var(--surface);
+  display: flex; flex-direction: column;
+  position: relative; overflow: hidden;
+}
+.main-img-zone {
+  flex: 1;
+  display: flex; align-items: center; justify-content: center;
+  padding: 48px;
+  position: relative;
+}
+.img-placeholder {
+  width: 100%; aspect-ratio: 4/3;
+  background: var(--gray-line);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 10px;
+  border: 1px dashed var(--gray-light);
+}
+.img-placeholder svg { width: 36px; height: 36px; stroke: var(--gray-mid); fill: none; stroke-width: 1.2; }
+.img-placeholder span { font-family: var(--font-d); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gray-mid); }
+
+/* Thumbnail strip */
+.thumb-strip {
+  display: flex;
+  border-top: 1px solid var(--gray-line);
+  height: 88px;
+  background: var(--white);
+}
+.thumb {
+  flex: 1;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 5px;
+  border-right: 1px solid var(--gray-line);
+  cursor: pointer;
+  font-family: var(--font-d); font-size: 9px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gray-mid);
+  transition: background 0.18s, color 0.18s;
+  position: relative;
+}
+.thumb:last-child { border-right: none; }
+.thumb.active { background: var(--surface); color: var(--graphite); }
+.thumb.active::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--red); }
+.thumb:hover:not(.active) { background: var(--surface); }
+.thumb svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.4; }
+
+/* ── DESCRIPTION SECTION ── */
+.section { padding: 88px 52px; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+
+.label-tag {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--font-d); font-weight: 600;
+  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--red); margin-bottom: 18px;
+}
+.label-tag::before { content: ''; width: 20px; height: 2px; background: var(--red); }
+
+.section-title {
+  font-family: var(--font-d); font-weight: 700;
+  font-size: 40px; line-height: 1.05; letter-spacing: 0.02em;
+  color: var(--graphite); margin-bottom: 20px;
+}
+.section-lead {
+  font-size: 15.5px; color: var(--gray-dark);
+  line-height: 1.85; max-width: 620px;
+}
+
+/* ── VIDEO SECTION ── */
+.video-section { background: var(--white); border-bottom: 1px solid var(--gray-line); }
+.video-layout { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center; }
+.video-frame {
+  background: var(--surface);
+  border: 1px solid var(--gray-line);
+  aspect-ratio: 16/9;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden; cursor: pointer;
+}
+.video-frame::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(90deg, rgba(0,0,0,0.018) 0px, rgba(0,0,0,0.018) 1px, transparent 1px, transparent 56px),
+              repeating-linear-gradient(0deg, rgba(0,0,0,0.018) 0px, rgba(0,0,0,0.018) 1px, transparent 1px, transparent 56px);
+  pointer-events: none;
+}
+.play-btn {
+  width: 66px; height: 66px;
+  border: 2px solid var(--graphite);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--white);
+  position: relative; z-index: 1;
+  transition: all 0.22s;
+}
+.play-btn::before {
+  content: '';
+  position: absolute;
+  width: 84px; height: 84px;
+  border: 1px solid var(--gray-line);
+  border-radius: 50%;
+}
+.play-btn svg { width: 24px; height: 24px; fill: var(--graphite); margin-left: 3px; }
+.video-frame:hover .play-btn { background: var(--red); border-color: var(--red); }
+.video-frame:hover .play-btn svg { fill: var(--white); }
+.video-label {
+  position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
+  font-family: var(--font-d); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gray-mid); white-space: nowrap;
+}
+.video-text .section-title { font-size: 34px; margin-bottom: 18px; }
+.video-text .video-desc { font-size: 15px; color: var(--gray-dark); line-height: 1.8; }
+
+/* ── ADVANTAGES ── */
+.adv-section { background: var(--surface); border-top: 1px solid var(--gray-line); border-bottom: 1px solid var(--gray-line); }
+.adv-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+.adv-visual {
+  background: var(--gray-line);
+  aspect-ratio: 4/3;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+  border: 1px dashed var(--gray-light);
+}
+.adv-visual svg { width: 40px; height: 40px; stroke: var(--gray-mid); fill: none; stroke-width: 1.2; }
+.adv-visual span { font-family: var(--font-d); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gray-mid); }
+.adv-list { display: flex; flex-direction: column; gap: 0; margin-top: 48px; }
+.adv-item {
+  display: flex; gap: 20px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--gray-line);
+  align-items: flex-start;
+}
+.adv-item:first-child { padding-top: 0; }
+.adv-num {
+  font-family: var(--font-d); font-weight: 700;
+  font-size: 13px; letter-spacing: 0.1em;
+  color: var(--red); flex-shrink: 0; width: 28px; padding-top: 2px;
+}
+.adv-body {}
+.adv-name {
+  font-family: var(--font-d); font-weight: 700;
+  font-size: 17px; letter-spacing: 0.04em;
+  color: var(--graphite); margin-bottom: 7px;
+}
+.adv-desc { font-size: 14px; color: var(--gray-dark); line-height: 1.75; }
+
+/* ── PDF DOWNLOAD ── */
+.pdf-section { background: var(--white); }
+.pdf-block {
+  max-width: 680px;
+  border: 1px solid var(--gray-line);
+  border-top: 3px solid var(--red);
+  padding: 40px 44px;
+  display: flex; gap: 28px; align-items: center;
+}
+.pdf-icon-box {
+  width: 56px; height: 56px; flex-shrink: 0;
+  background: rgba(212,43,43,0.08);
+  display: flex; align-items: center; justify-content: center;
+}
+.pdf-icon-box svg { width: 22px; height: 22px; stroke: var(--red); fill: none; stroke-width: 1.5; }
+.pdf-info { flex: 1; }
+.pdf-title-text { font-family: var(--font-d); font-weight: 700; font-size: 18px; letter-spacing: 0.04em; color: var(--graphite); margin-bottom: 4px; }
+.pdf-meta { font-size: 13px; color: var(--gray-mid); letter-spacing: 0.04em; margin-bottom: 14px; }
+.pdf-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-d); font-weight: 700;
+  font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+  background: var(--red); color: var(--white);
+  border: none; padding: 11px 24px; cursor: pointer; text-decoration: none;
+  transition: background 0.18s;
+}
+.pdf-cta:hover { background: var(--red-hover); }
+.pdf-cta svg { width: 14px; height: 14px; stroke: var(--white); fill: none; stroke-width: 2; }
+
+/* ── CONTACT SECTION ── */
+.contact-section { background: var(--surface); border-top: 1px solid var(--gray-line); }
+.contact-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: start; }
+.contact-claim { font-family: var(--font-d); font-weight: 700; font-size: 36px; line-height: 1.1; letter-spacing: 0.02em; color: var(--graphite); margin-bottom: 20px; }
+.contact-claim em { color: var(--red); font-style: normal; }
+.contact-body { font-size: 14.5px; color: var(--gray-dark); line-height: 1.8; margin-bottom: 40px; }
+.contact-detail { display: flex; flex-direction: column; gap: 18px; }
+.c-item { display: flex; gap: 14px; align-items: flex-start; }
+.c-icon { width: 38px; height: 38px; background: rgba(212,43,43,0.07); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.c-icon svg { width: 16px; height: 16px; stroke: var(--red); fill: none; stroke-width: 1.5; }
+.c-label { font-family: var(--font-d); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gray-mid); display: block; margin-bottom: 2px; }
+.c-value { font-family: var(--font-d); font-weight: 600; font-size: 14px; color: var(--graphite); letter-spacing: 0.02em; }
+
+/* Form */
+.form-card { background: var(--white); border: 1px solid var(--gray-line); border-top: 3px solid var(--red); padding: 44px; }
+.form-heading { font-family: var(--font-d); font-weight: 700; font-size: 20px; letter-spacing: 0.05em; color: var(--graphite); margin-bottom: 6px; }
+.form-sub { font-size: 12.5px; color: var(--gray-mid); margin-bottom: 30px; letter-spacing: 0.04em; }
+.f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+.f-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+.f-label { font-family: var(--font-d); font-weight: 600; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--graphite); }
+.f-input, .f-select, .f-textarea {
+  border: 1px solid var(--gray-line); background: var(--surface);
+  padding: 11px 14px; font-family: var(--font-b); font-size: 14px; color: var(--graphite);
+  outline: none; transition: border-color 0.18s; width: 100%; border-radius: 0; appearance: none;
+}
+.f-input:focus, .f-select:focus, .f-textarea:focus { border-color: var(--red); background: var(--white); }
+.f-textarea { min-height: 96px; resize: vertical; }
+.f-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='7' viewBox='0 0 11 7'%3E%3Cpath d='M1 1l4.5 4.5L10 1' stroke='%237A7A80' stroke-width='1.4' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; cursor: pointer;
+}
+.f-submit {
+  width: 100%; padding: 14px 28px; background: var(--red); border: none;
+  font-family: var(--font-d); font-weight: 700; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--white); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;
+  transition: background 0.18s; margin-top: 22px;
+}
+.f-submit:hover { background: var(--red-hover); }
+.f-submit svg { width: 15px; height: 15px; stroke: var(--white); fill: none; stroke-width: 2; }
+
+/* ── RELATED ── */
+.related-section { background: var(--white); border-top: 1px solid var(--gray-line); }
+.rel-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 44px; }
+.rel-card { border: 1px solid var(--gray-line); text-decoration: none; color: inherit; display: block; transition: box-shadow 0.22s, transform 0.22s; position: relative; overflow: hidden; }
+.rel-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--red); transform: scaleX(0); transform-origin: left; transition: transform 0.28s; }
+.rel-card:hover { box-shadow: 0 6px 28px rgba(0,0,0,0.08); transform: translateY(-3px); }
+.rel-card:hover::after { transform: scaleX(1); }
+.rel-thumb { background: var(--surface); height: 164px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; border-bottom: 1px solid var(--gray-line); }
+.rel-thumb svg { width: 28px; height: 28px; stroke: var(--gray-mid); fill: none; stroke-width: 1.3; }
+.rel-thumb span { font-family: var(--font-d); font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gray-mid); }
+.rel-body { padding: 24px; }
+.rel-cat { font-family: var(--font-d); font-weight: 600; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red); display: block; margin-bottom: 8px; }
+.rel-name { font-family: var(--font-d); font-weight: 700; font-size: 20px; letter-spacing: 0.03em; color: var(--graphite); margin-bottom: 10px; }
+.rel-desc { font-size: 13px; color: var(--gray-dark); line-height: 1.65; margin-bottom: 18px; }
+.rel-link { display: inline-flex; align-items: center; gap: 7px; font-family: var(--font-d); font-weight: 600; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--graphite); transition: color 0.18s; }
+.rel-link svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; transition: transform 0.18s; }
+.rel-card:hover .rel-link { color: var(--red); }
+.rel-card:hover .rel-link svg { transform: translateX(3px); }
+
+/* ── FOOTER ── */
+footer { background: var(--graphite); border-top: 3px solid var(--red); }
+.footer-main {
+  padding: 64px 52px 48px;
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 48px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.f-brand .brand { font-family: var(--font-d); font-weight: 700; font-size: 26px; letter-spacing: 0.1em; color: var(--white); line-height: 1; margin-bottom: 4px; }
+.f-brand .brand em { color: var(--red); font-style: normal; }
+.f-brand .tagline { font-size: 8.5px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.35); display: block; margin-bottom: 20px; }
+.f-brand p { font-size: 13px; line-height: 1.8; color: rgba(255,255,255,0.45); max-width: 270px; margin-bottom: 24px; }
+.certs { display: flex; gap: 8px; flex-wrap: wrap; }
+.cert { font-family: var(--font-d); font-weight: 600; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.3); padding: 4px 10px; }
+.f-col h4 { font-family: var(--font-d); font-weight: 700; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+.f-col ul { list-style: none; }
+.f-col ul li { margin-bottom: 9px; }
+.f-col ul li a { font-size: 13px; color: rgba(255,255,255,0.35); text-decoration: none; display: flex; align-items: center; gap: 8px; transition: color 0.18s; letter-spacing: 0.02em; }
+.f-col ul li a::before { content: ''; width: 10px; height: 1px; background: rgba(255,255,255,0.12); flex-shrink: 0; transition: width 0.2s, background 0.2s; }
+.f-col ul li a:hover { color: rgba(255,255,255,0.8); }
+.f-col ul li a:hover::before { width: 16px; background: var(--red); }
+.footer-bottom { padding: 20px 52px; display: flex; align-items: center; justify-content: space-between; }
+.footer-legal { font-size: 11px; color: rgba(255,255,255,0.2); letter-spacing: 0.05em; }
+.footer-made { font-size: 11px; color: rgba(255,255,255,0.15); letter-spacing: 0.05em; }
+.footer-made em { color: var(--red); font-style: normal; }
+
+/* ── SCROLL FADE ── */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a class="logo" href="#">
+    <span class="logo-name"><em>N</em>ETALM</span>
+    <span class="logo-sub">Maquinaria de Limpieza &amp; Servicios Urbanos</span>
+  </a>
+  <nav>
+    <a href="#">Productos</a>
+    <a href="#">Tecnología</a>
+    <a href="#">Servicios</a>
+    <a href="#">Proyectos</a>
+    <a href="#">Empresa</a>
+  </nav>
+  <a class="nav-cta" href="#contacto">
+    Solicitar Información
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+  </a>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="#">Inicio</a>
+  <span class="sep">›</span>
+  <a href="#">Productos</a>
+  <span class="sep">›</span>
+  <a href="#">Maquinaria Vial</a>
+  <span class="sep">›</span>
+  <a href="#">Barredoras Viales de Aspiración</a>
+  <span class="sep">›</span>
+  <span class="cur">Flexigo 150</span>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="product-tag">Barredoras Viales de Aspiración</div>
+    <h1 class="hero-title">
+      Barredora
+      <span class="model">Flexigo 150</span>
+    </h1>
+    <p class="hero-series">Maquinaria Vial — Versátil &amp; Multifuncional</p>
+    <p class="hero-desc">
+      La todoterreno más pequeña de la familia de barredoras Schmidt resulta muy versátil y cuenta con muchos implementos para montar o acoplar fácilmente. Para el mantenimiento de carreteras tanto de verano como de invierno. Gracias a la cómoda dirección articulada, la gran carga útil y un peso máximo autorizado de 3,5 t, la Flexigo 150 se puede usar en distintos espacios. Desde calles a estrechos callejones en zonas peatonales.
+    </p>
+    <div class="hero-actions">
+      <a class="btn-red" href="#contacto">
+        Solicitar Información
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <a class="btn-outline" href="#pdf">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Ficha Técnica PDF
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="main-img-zone">
+      <div class="img-placeholder">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span>Imagen Principal del Producto</span>
+      </div>
+    </div>
+    <div class="thumb-strip">
+      <div class="thumb active">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        General
+      </div>
+      <div class="thumb">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        Frontal
+      </div>
+      <div class="thumb">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        Lateral
+      </div>
+      <div class="thumb">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        Detalle
+      </div>
+      <div class="thumb">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        Interior
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section class="section video-section reveal">
+  <div class="section-inner">
+    <div class="video-layout">
+      <div class="video-frame">
+        <div class="play-btn">
+          <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </div>
+        <span class="video-label">Flexigo 150 — Vídeo de Producto</span>
+      </div>
+      <div class="video-text">
+        <div class="label-tag">Vídeo</div>
+        <h2 class="section-title">Véala en<br>operación real</h2>
+        <p class="video-desc">
+          [Texto de apoyo al vídeo. Breve descripción de lo que muestra la pieza audiovisual: condiciones de trabajo, entorno de demostración, aspectos destacados que el espectador va a ver.]
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADVANTAGES -->
+<section class="section adv-section reveal">
+  <div class="section-inner">
+    <div class="adv-layout">
+      <div>
+        <div class="label-tag">Ventajas</div>
+        <h2 class="section-title">Por qué elegir<br>la Flexigo 150</h2>
+        <div class="adv-list">
+          <div class="adv-item">
+            <span class="adv-num">01</span>
+            <div class="adv-body">
+              <div class="adv-name">Un dispositivo, numerosas posibilidades</div>
+              <p class="adv-desc">Uso versátil y capacidad eficiente. La Flexigo 150 se adapta a múltiples entornos y aplicaciones gracias a su diseño compacto y su amplia gama de implementos.</p>
+            </div>
+          </div>
+          <div class="adv-item">
+            <span class="adv-num">02</span>
+            <div class="adv-body">
+              <div class="adv-name">Cabina espaciosa y ergonómica</div>
+              <p class="adv-desc">Excelente visibilidad y controles ergonómicos. Multifuncional. El operador dispone de un puesto de trabajo cómodo, intuitivo y preparado para jornadas de trabajo intensas.</p>
+            </div>
+          </div>
+          <div class="adv-item">
+            <span class="adv-num">03</span>
+            <div class="adv-body">
+              <div class="adv-name">Innovador sistema de cepillos</div>
+              <p class="adv-desc">La Flexigo 150 está disponible con un sistema profesional de 2 cepillos u, opcionalmente, de 3 cepillos. Barrido silencioso con excelente poder de succión.</p>
+            </div>
+          </div>
+          <div class="adv-item">
+            <span class="adv-num">04</span>
+            <div class="adv-body">
+              <div class="adv-name">Gran altura de descarga</div>
+              <p class="adv-desc">Optimizada para facilitar las operaciones de vaciado en todo tipo de contenedores y vehículos de recogida, reduciendo tiempos de ciclo y mejorando la eficiencia operativa.</p>
+            </div>
+          </div>
+          <div class="adv-item">
+            <span class="adv-num">05</span>
+            <div class="adv-body">
+              <div class="adv-name">Protección automática anticolisión</div>
+              <p class="adv-desc">Protección automática anticolisión de los cepillos delanteros. Un sistema que protege los componentes ante obstáculos imprevistos, reduciendo el riesgo de daños y paradas no planificadas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="label-tag" style="visibility:hidden">—</div>
+        <h2 class="section-title" style="visibility:hidden">—</h2>
+        <div class="adv-visual">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Imagen de Apoyo Ventajas</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PDF DOWNLOAD -->
+<section class="section pdf-section reveal" id="pdf">
+  <div class="section-inner">
+    <div class="label-tag">Documentación</div>
+    <h2 class="section-title" style="margin-bottom:36px">Descargue la ficha técnica</h2>
+    <div class="pdf-block">
+      <div class="pdf-icon-box">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      </div>
+      <div class="pdf-info">
+        <div class="pdf-title-text">Ficha Técnica — Flexigo 150</div>
+        <div class="pdf-meta">Documento técnico completo · PDF · Español / English</div>
+        <a class="pdf-cta" href="#">
+          Descargar PDF
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact-section reveal" id="contacto">
+  <div class="section-inner">
+    <div class="contact-layout">
+      <div>
+        <div class="label-tag">Contacto Comercial</div>
+        <h2 class="contact-claim">¿Necesita información<br>sobre la <em>Flexigo 150</em>?</h2>
+        <p class="contact-body">Nuestro equipo técnico-comercial le atenderá de forma personalizada. Consultas sobre disponibilidad, demostraciones en campo y condiciones de servicio.</p>
+        <div class="contact-detail">
+          <div class="c-item">
+            <div class="c-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.37a16 16 0 0 0 6 6l.9-.9a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16v.92z"/></svg></div>
+            <div><span class="c-label">Teléfono Comercial</span><span class="c-value">+34 964 XXX XXX</span></div>
+          </div>
+          <div class="c-item">
+            <div class="c-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div><span class="c-label">Email Comercial</span><span class="c-value">comercial@netalm.es</span></div>
+          </div>
+          <div class="c-item">
+            <div class="c-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><span class="c-label">Sede Central</span><span class="c-value">Castellón de la Plana, España</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <div class="form-heading">Solicitud de Información</div>
+        <div class="form-sub">Producto: Flexigo 150</div>
+        <div class="f-row">
+          <div class="f-group"><label class="f-label">Nombre *</label><input type="text" class="f-input" placeholder="Su nombre"></div>
+          <div class="f-group"><label class="f-label">Empresa *</label><input type="text" class="f-input" placeholder="Nombre de empresa"></div>
+        </div>
+        <div class="f-row">
+          <div class="f-group"><label class="f-label">Email *</label><input type="email" class="f-input" placeholder="correo@empresa.com"></div>
+          <div class="f-group"><label class="f-label">Teléfono</label><input type="tel" class="f-input" placeholder="+34 000 000 000"></div>
+        </div>
+        <div class="f-group">
+          <label class="f-label">Tipo de Consulta</label>
+          <select class="f-select">
+            <option value="">Seleccione una opción</option>
+            <option>Solicitar ficha técnica completa</option>
+            <option>Concertar demostración en campo</option>
+            <option>Solicitar oferta comercial</option>
+            <option>Información sobre configuraciones</option>
+            <option>Servicio postventa</option>
+          </select>
+        </div>
+        <div class="f-group">
+          <label class="f-label">Mensaje</label>
+          <textarea class="f-textarea" placeholder="Describa su consulta o requerimientos específicos..."></textarea>
+        </div>
+        <button class="f-submit">
+          Enviar Solicitud
+          <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RELATED PRODUCTS -->
+<section class="section related-section reveal">
+  <div class="section-inner">
+    <div class="label-tag">Gama Netalm</div>
+    <h2 class="section-title">Otros productos</h2>
+    <div class="rel-grid">
+      <a class="rel-card" href="#">
+        <div class="rel-thumb">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Imagen del Producto</span>
+        </div>
+        <div class="rel-body">
+          <span class="rel-cat">Barredoras Compactas</span>
+          <div class="rel-name">BC-400 COMPACT</div>
+          <p class="rel-desc">Descripción breve del producto relacionado. A completar con el copy oficial.</p>
+          <span class="rel-link">Ver producto <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </a>
+      <a class="rel-card" href="#">
+        <div class="rel-thumb">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Imagen del Producto</span>
+        </div>
+        <div class="rel-body">
+          <span class="rel-cat">Barredoras Aspiradoras</span>
+          <div class="rel-name">BA-1200 ULTRA</div>
+          <p class="rel-desc">Descripción breve del producto relacionado. A completar con el copy oficial.</p>
+          <span class="rel-link">Ver producto <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </a>
+      <a class="rel-card" href="#">
+        <div class="rel-thumb">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Imagen del Producto</span>
+        </div>
+        <div class="rel-body">
+          <span class="rel-cat">Cisternas &amp; Baldeo</span>
+          <div class="rel-name">CB-6000 EV</div>
+          <p class="rel-desc">Descripción breve del producto relacionado. A completar con el copy oficial.</p>
+          <span class="rel-link">Ver producto <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-main">
+    <div class="f-brand">
+      <div class="brand"><em>N</em>ETALM</div>
+      <span class="tagline">Maquinaria de Limpieza &amp; Servicios Urbanos</span>
+      <p>Fabricantes europeos de maquinaria de limpieza vial y servicios urbanos. Más de 30 años de experiencia en ingeniería aplicada a la gestión sostenible de espacios públicos.</p>
+      <div class="certs">
+        <span class="cert">ISO 9001</span>
+        <span class="cert">CE</span>
+        <span class="cert">Stage V</span>
+        <span class="cert">Euro VI</span>
+      </div>
+    </div>
+    <div class="f-col">
+      <h4>Productos</h4>
+      <ul>
+        <li><a href="#">Barredoras Urbanas</a></li>
+        <li><a href="#">Barredoras Aspiradoras</a></li>
+        <li><a href="#">Barredoras Compactas</a></li>
+        <li><a href="#">Cisternas &amp; Baldeo</a></li>
+        <li><a href="#">Accesorios &amp; Recambios</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4>Contacto</h4>
+      <ul>
+        <li><a href="tel:+34964000000">+34 964 XXX XXX</a></li>
+        <li><a href="mailto:comercial@netalm.es">comercial@netalm.es</a></li>
+        <li><a href="#contacto">Formulario de contacto</a></li>
+        <li><a href="#">Castellón de la Plana, España</a></li>
+        <li><a href="#">Solicitar demostración</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-legal">© 2025 NETALM S.L. — Todos los derechos reservados · Aviso Legal · Privacidad</span>
+    <span class="footer-made">Fabricado en <em>España</em> · Distribuido en Europa</span>
+  </div>
+</footer>
+
+<script>
+  // Gallery thumbs
+  document.querySelectorAll('.thumb').forEach(t => {
+    t.addEventListener('click', () => {
+      document.querySelectorAll('.thumb').forEach(x => x.classList.remove('active'));
+      t.classList.add('active');
+    });
+  });
+
+  // Scroll reveal
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
