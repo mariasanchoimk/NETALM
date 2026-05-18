@@ -216,6 +216,13 @@ nav a:hover::after{width:100%;}
 .cat-card.full{grid-column:span 2;flex-direction:row;align-items:center;gap:48px;padding:36px 40px;}
 .cat-card.full .cat-card-content{flex:1;}
 
+
+  .social-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px;}
+.social-link{width:38px!important;height:38px!important;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.035);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.48);text-decoration:none;transition:background .18s,border-color .18s,color .18s,transform .18s;}
+.social-link:hover{background:rgba(212,43,43,.12)!important;border-color:rgba(212,43,43,.42);color:var(--white);transform:translateY(-2px);}
+.social-link svg{width:17px;height:17px;fill:currentColor;}
+
+  
 /* ── PRODUCTOS DESTACADOS ── */
 .featured-section{background:var(--surface);border-top:1px solid var(--gray-line);border-bottom:1px solid var(--gray-line);}
 .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
