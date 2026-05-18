@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Barredoras Viales en Venta y Alquiler — NETALM</title>
-<meta name="description" content="Barredoras viales en venta y alquiler para ayuntamientos, empresas de limpieza, concesionarias y servicios urbanos. Asesoramiento personalizado y soporte postventa.">
+<title>Camiones recolectores de basura en venta y alquiler — NETALM</title>
+<meta name="description" content="Camiones recolectores de basura en venta y alquiler para recogida de residuos urbanos, ayuntamientos, empresas de servicios, concesionarias y operadores medioambientales.">
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -166,6 +166,14 @@ footer{background:var(--graphite);border-top:1px solid rgba(255,255,255,.05);}
 .social-link{width:38px;height:38px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.035);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.48);text-decoration:none;transition:background .18s,border-color .18s,color .18s,transform .18s;}
 .social-link:hover{background:rgba(212,43,43,.12);border-color:rgba(212,43,43,.42);color:var(--white);transform:translateY(-2px);}
 .social-link svg{width:17px;height:17px;fill:currentColor;}
+
+/* Ajustes especificos para categoria con un unico producto */
+.prod-grid.single-product{grid-template-columns:minmax(280px,520px);}
+.prod-grid.single-product .prod-card{min-height:100%;}
+.prod-grid.single-product .prod-img{aspect-ratio:16/9;}
+.prod-grid.single-product .prod-name{font-size:28px;}
+.prod-grid.single-product .prod-desc{font-size:13.5px;}
+@media (max-width:680px){.prod-grid.single-product{grid-template-columns:1fr;}}
 @media (max-width:980px){
   header{padding:0 24px;gap:24px;}
   .breadcrumb,.intro-block,.grid-section,.seo-sections,.cta-section,.footer-main,.footer-bottom{padding-left:24px;padding-right:24px;}
@@ -207,23 +215,23 @@ footer{background:var(--graphite);border-top:1px solid rgba(255,255,255,.05);}
 <div class="breadcrumb">
   <a href="#">Inicio</a><span class="sep">›</span>
   <a href="#">Productos</a><span class="sep">›</span>
-  <span class="cur">Barredoras Viales</span>
+  <span class="cur">Camiones recolectores</span>
 </div>
 <!-- HERO -->
 <section class="hero">
   <div class="hero-content">
-    <div class="hero-tag">Barredoras Viales</div>
-    <h1 class="hero-h1">Barredoras Viales<em>en Venta y Alquiler</em></h1>
+    <div class="hero-tag">Recolectores RSU</div>
+    <h1 class="hero-h1">Camiones recolectores de basura<em>en venta y alquiler</em></h1>
     <div class="hero-pills">
-      <a class="hero-pill" href="#grid">Ver barredora disponible</a>
+      <a class="hero-pill" href="#grid">Ver camión disponible</a>
       <a class="hero-pill" href="#contacto">Solicitar presupuesto</a>
     </div>
   </div>
   <div class="hero-visual">
     <div class="hero-img-area">
       <div class="hero-img-box">
-        <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7"/><path d="M5 19h14"/><circle cx="5" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg>
-        <span>Imagen barredora vial</span>
+        <svg viewBox="0 0 24 24"><rect x="2" y="5" width="13" height="10" rx="1"/><path d="M15 9h4l3 3v3h-7"/><path d="M5 18h14"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/><path d="M5 8h7"/><path d="M5 11h7"/></svg>
+        <span>Imagen camión recolector</span>
       </div>
     </div>
   </div>
@@ -232,8 +240,8 @@ footer{background:var(--graphite);border-top:1px solid rgba(255,255,255,.05);}
 <div class="intro-block reveal">
   <div class="intro-inner">
     <div class="intro-content">
-      <p>En Netalm ofrecemos barredoras viales para venta y alquiler orientadas a ayuntamientos, empresas de limpieza, concesionarias y servicios urbanos que necesitan soluciones fiables para el mantenimiento y limpieza viaria.</p>
-      <p>Cada cliente trabaja en un entorno diferente y tiene unas necesidades concretas, por eso analizamos cada caso de forma personalizada para recomendar la barredora vial más adecuada según el tipo de vía, el volumen de trabajo, el tipo de residuos o la frecuencia de limpieza.</p>
+      <p>En Netalm ofrecemos camiones recolectores de basura en venta y alquiler para servicios de recogida de residuos urbanos, ayuntamientos, empresas de servicios, concesionarias y operadores medioambientales.</p>
+      <p>Trabajamos con diferentes configuraciones y capacidades para adaptarnos a cada ruta, sistema de recogida y necesidad operativa, ofreciendo soluciones pensadas para facilitar el trabajo diario y optimizar la gestión de residuos.</p>
     </div>
   </div>
 </div>
@@ -241,228 +249,33 @@ footer{background:var(--graphite);border-top:1px solid rgba(255,255,255,.05);}
 <section class="grid-section reveal" id="grid">
   <div class="grid-inner">
     <div class="grid-header">
-      <span class="section-label">Catálogo</span>
-      <h2 class="section-title">Barredoras viales por tipo y modelo</h2>
+      <span class="section-label">Camiones recolectores</span>
+      <h2 class="section-title">Camiones recolectores para reforzar o renovar tu flota</h2>
     </div>
     <div class="grid-cta-bar">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-      <p>Accede primero a la familia de barredoras que necesitas o revisa directamente los modelos disponibles para venta y alquiler.</p>
-      <a href="#contacto" style="font-family:var(--font-d);font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;gap:6px;">Consúltanos <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-    </div>
-    <div class="category-strip">
-      <a class="cat-card reveal d1" href="#">
-        <div class="cat-top">
-          <span class="cat-icon"><svg viewBox="0 0 24 24"><path d="M4 16h9a5 5 0 0 0 0-10H9"/><path d="M4 16c0 2 1.5 3 3.5 3H18"/><circle cx="7" cy="19" r="2"/><circle cx="18" cy="19" r="2"/><path d="M9 6V3"/></svg></span>
-          <span class="cat-count">3 líneas</span>
-        </div>
-        <div>
-          <div class="cat-name">Aspiración</div>
-          <p class="cat-desc">Equipos pensados para una limpieza vial eficiente mediante sistema de aspiración.</p>
-          <span class="cat-link">Ver subcategoría <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-        </div>
-      </a>
-      <a class="cat-card reveal d1" href="#">
-        <div class="cat-top">
-          <span class="cat-icon"><svg viewBox="0 0 24 24"><path d="M3 15h12l4-5h2"/><path d="M5 15l2 4h8l2-4"/><circle cx="8" cy="19" r="2"/><circle cx="16" cy="19" r="2"/><path d="M7 11h8"/></svg></span>
-          <span class="cat-count">3 líneas</span>
-        </div>
-        <div>
-          <div class="cat-name">Arrastre</div>
-          <p class="cat-desc">Soluciones robustas para trabajos continuos en calles, vías y entornos urbanos.</p>
-          <span class="cat-link">Ver subcategoría <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-        </div>
-      </a>
-      <a class="cat-card reveal d1" href="#">
-        <div class="cat-top">
-          <span class="cat-icon"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></span>
-          <span class="cat-count">3 líneas</span>
-        </div>
-        <div>
-          <div class="cat-name">Eléctricas</div>
-          <p class="cat-desc">Modelos eléctricos para servicios urbanos con menor impacto acústico y ambiental.</p>
-          <span class="cat-link">Ver subcategoría <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-        </div>
-      </a>
+      <p>Indícanos el tipo de recogida, ruta o capacidad que necesitas y te ayudamos a encontrar el camión recolector adecuado.</p>
+      <a href="#contacto" style="font-family:var(--font-d);font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;gap:6px;">Consúltanos <svg style="width:11px;height:11px;stroke:var(--red);fill:none;stroke-width:2.5;" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
     </div>
     <div class="products-subheader">
-      <h3>Modelos disponibles</h3>
-      <p>Una parrilla clara de productos permite comparar rápidamente opciones compactas, de arrastre y eléctricas antes de solicitar asesoramiento.</p>
+      <h3>Camiones de basura disponibles para venta o alquiler</h3>
+      <p>GRID DE CAMIONES RECOLECTORES</p>
     </div>
-    <div class="prod-grid">
-      <a class="prod-card reveal d1" href="#">
-        <div class="prod-img">
-          <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7"/><circle cx="5" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg>
-          <span>Imagen del producto</span>
-        </div>
-        <div class="prod-body">
-          <div class="prod-meta">
-            <span class="prod-tipo">Barredora Vial</span>
-            <span class="prod-category">Aspiración</span>
-          </div>
-          <div class="prod-name">Flexigo150</div>
-          <p class="prod-desc">Modelo de barredora vial para servicios urbanos, mantenimiento municipal y limpieza profesional. Consulta configuración, disponibilidad y modalidad.</p>
-          <div class="prod-tags">
-            <span class="prod-tag">Compacta</span>
-            <span class="prod-tag">Venta</span>
-            <span class="prod-tag">Alquiler</span>
-          </div>
-          <span class="prod-link">Ver ficha <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-        </div>
-      </a>
-      <a class="prod-card reveal d1" href="#">
-        <div class="prod-img">
-          <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7"/><circle cx="5" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg>
-          <span>Imagen del producto</span>
-        </div>
-        <div class="prod-body">
-          <div class="prod-meta">
-            <span class="prod-tipo">Barredora Vial</span>
-            <span class="prod-category">Aspiración</span>
-          </div>
-          <div class="prod-name">Swingo200+</div>
-          <p class="prod-desc">Modelo de barredora vial para servicios urbanos, mantenimiento municipal y limpieza profesional. Consulta configuración, disponibilidad y modalidad.</p>
-          <div class="prod-tags">
-            <span class="prod-tag">Urbana</span>
-            <span class="prod-tag">Venta</span>
-            <span class="prod-tag">Alquiler</span>
-          </div>
-          <span class="prod-link">Ver ficha <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-        </div>
-      </a>
-      <a class="prod-card reveal d1" href="#">
-        <div class="prod-img">
-          <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7"/><circle cx="5" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg>
-          <span>Imagen del producto</span>
-        </div>
-        <div class="prod-body">
-          <div class="prod-meta">
-            <span class="prod-tipo">Barredora Vial</span>
-            <span class="prod-category">Aspiración</span>
-          </div>
-          <div class="prod-name">Cleango550</div>
-          <p class="prod-desc">Modelo de barredora vial para servicios urbanos, mantenimiento municipal y limpieza profesional. Consulta configuración, disponibilidad y modalidad.</p>
-          <div class="prod-tags">
-            <span class="prod-tag">Alto rendimiento</span>
-            <span class="prod-tag">Venta</span>
-            <span class="prod-tag">Alquiler</span>
-          </div>
-          <span class="prod-link">Ver ficha <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-        </div>
-      </a>
-      <a class="prod-card reveal d1" href="#">
-        <div class="prod-img">
-          <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7"/><circle cx="5" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg>
-          <span>Imagen del producto</span>
-        </div>
-        <div class="prod-body">
-          <div class="prod-meta">
-            <span class="prod-tipo">Barredora Vial</span>
-            <span class="prod-category">Arrastre</span>
-          </div>
-          <div class="prod-name">Macro M10</div>
-          <p class="prod-desc">Modelo de barredora vial para servicios urbanos, mantenimiento municipal y limpieza profesional. Consulta configuración, disponibilidad y modalidad.</p>
-          <div class="prod-tags">
-            <span class="prod-tag">Compacta</span>
-            <span class="prod-tag">Venta</span>
-            <span class="prod-tag">Alquiler</span>
-          </div>
-          <span class="prod-link">Ver ficha <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-        </div>
-      </a>
-      <a class="prod-card reveal d1" href="#">
-        <div class="prod-img">
-          <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7"/><circle cx="5" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg>
-          <span>Imagen del producto</span>
-        </div>
-        <div class="prod-body">
-          <div class="prod-meta">
-            <span class="prod-tipo">Barredora Vial</span>
-            <span class="prod-category">Arrastre</span>
-          </div>
-          <div class="prod-name">Macro M40</div>
-          <p class="prod-desc">Modelo de barredora vial para servicios urbanos, mantenimiento municipal y limpieza profesional. Consulta configuración, disponibilidad y modalidad.</p>
-          <div class="prod-tags">
-            <span class="prod-tag">Media capacidad</span>
-            <span class="prod-tag">Venta</span>
-            <span class="prod-tag">Alquiler</span>
-          </div>
-          <span class="prod-link">Ver ficha <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-        </div>
-      </a>
-      <a class="prod-card reveal d1" href="#">
-        <div class="prod-img">
-          <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7"/><circle cx="5" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg>
-          <span>Imagen del producto</span>
-        </div>
-        <div class="prod-body">
-          <div class="prod-meta">
-            <span class="prod-tipo">Barredora Vial</span>
-            <span class="prod-category">Arrastre</span>
-          </div>
-          <div class="prod-name">Macro M60</div>
-          <p class="prod-desc">Modelo de barredora vial para servicios urbanos, mantenimiento municipal y limpieza profesional. Consulta configuración, disponibilidad y modalidad.</p>
-          <div class="prod-tags">
-            <span class="prod-tag">Gran capacidad</span>
-            <span class="prod-tag">Venta</span>
-            <span class="prod-tag">Alquiler</span>
-          </div>
-          <span class="prod-link">Ver ficha <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-        </div>
-      </a>
+    <div class="prod-grid single-product">
       <a class="prod-card featured reveal d1" href="#">
         <div class="prod-img">
-          <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7"/><circle cx="5" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg>
+          <svg viewBox="0 0 24 24"><rect x="2" y="5" width="13" height="10" rx="1"/><path d="M15 9h4l3 3v3h-7"/><path d="M5 18h14"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/><path d="M5 8h7"/><path d="M5 11h7"/></svg>
           <span>Imagen del producto</span>
         </div>
         <div class="prod-body">
           <div class="prod-meta">
-            <span class="prod-tipo">Barredora Vial</span>
-            <span class="prod-category">Eléctrica</span>
+            <span class="prod-tipo">Camión recolector</span>
+            <span class="prod-category">Carga lateral</span>
           </div>
-          <div class="prod-name">eSwingo200+</div>
-          <p class="prod-desc">Modelo de barredora vial para servicios urbanos, mantenimiento municipal y limpieza profesional. Consulta configuración, disponibilidad y modalidad.</p>
+          <div class="prod-name">AMS Carga Lateral</div>
+          <p class="prod-desc">Camión recolector de basura para servicios de recogida de residuos urbanos, rutas municipales y operadores medioambientales. Consulta disponibilidad, capacidad y modalidad de venta o alquiler.</p>
           <div class="prod-tags">
-            <span class="prod-tag">Cero emisiones</span>
-            <span class="prod-tag">Venta</span>
-            <span class="prod-tag">Alquiler</span>
-          </div>
-          <span class="prod-link">Ver ficha <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-        </div>
-      </a>
-      <a class="prod-card featured reveal d1" href="#">
-        <div class="prod-img">
-          <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7"/><circle cx="5" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg>
-          <span>Imagen del producto</span>
-        </div>
-        <div class="prod-body">
-          <div class="prod-meta">
-            <span class="prod-tipo">Barredora Vial</span>
-            <span class="prod-category">Eléctrica</span>
-          </div>
-          <div class="prod-name">eCleango550</div>
-          <p class="prod-desc">Modelo de barredora vial para servicios urbanos, mantenimiento municipal y limpieza profesional. Consulta configuración, disponibilidad y modalidad.</p>
-          <div class="prod-tags">
-            <span class="prod-tag">Alto rendimiento</span>
-            <span class="prod-tag">Venta</span>
-            <span class="prod-tag">Alquiler</span>
-          </div>
-          <span class="prod-link">Ver ficha <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-        </div>
-      </a>
-      <a class="prod-card featured reveal d1" href="#">
-        <div class="prod-img">
-          <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7"/><circle cx="5" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg>
-          <span>Imagen del producto</span>
-        </div>
-        <div class="prod-body">
-          <div class="prod-meta">
-            <span class="prod-tipo">Barredora Vial</span>
-            <span class="prod-category">Eléctrica</span>
-          </div>
-          <div class="prod-name">eCityJet 3030</div>
-          <p class="prod-desc">Modelo de barredora vial para servicios urbanos, mantenimiento municipal y limpieza profesional. Consulta configuración, disponibilidad y modalidad.</p>
-          <div class="prod-tags">
-            <span class="prod-tag">Servicios urbanos</span>
+            <span class="prod-tag">Carga lateral</span>
             <span class="prod-tag">Venta</span>
             <span class="prod-tag">Alquiler</span>
           </div>
@@ -476,64 +289,82 @@ footer{background:var(--graphite);border-top:1px solid rgba(255,255,255,.05);}
 <div class="seo-sections reveal">
   <div class="seo-sections-inner">
     <div class="seo-header">
-      <h2>Barredoras Viales para Ayuntamientos y Empresas</h2>
+      <h2>Soluciones de limpieza para flotas municipales y empresas</h2>
     </div>
     <div class="seo-block">
       <div class="seo-block-label">
-        <div class="seo-block-tag">Venta</div>
-        <div class="seo-block-title">Venta de Barredoras Viales Nuevas, Usadas y Reacondicionadas</div>
+        <div class="seo-block-tag">Venta y alquiler</div>
+        <div class="seo-block-title">Venta y alquiler de camiones recolectores de basura</div>
       </div>
       <div class="seo-block-content">
-        <p>En Netalm trabajamos con barredoras viales nuevas, usadas y reacondicionadas para adaptarnos a diferentes presupuestos y necesidades de trabajo.</p>
-        <p>No es lo mismo una barredora para un pequeño municipio que para una gran ciudad o una empresa de servicios urbanos, por eso nuestro equipo asesora de forma personalizada en cada proyecto.</p>
-        <p>La experiencia en limpieza viaria nos permite ayudar a elegir la maquinaria más adecuada para cada entorno y tipo de servicio.</p>
-      </div>
-    </div>
-    <div class="seo-block">
-      <div class="seo-block-label">
-        <div class="seo-block-tag">Alquiler</div>
-        <div class="seo-block-title">Alquiler de barredoras viales para ayuntamientos y empresas</div>
-      </div>
-      <div class="seo-block-content">
-        <p>El alquiler de barredoras viales es una solución muy útil para reforzar campañas de limpieza, cubrir sustituciones o responder a necesidades temporales sin realizar una gran inversión inicial.</p>
-        <p>Muchos ayuntamientos y empresas utilizan esta opción en épocas de mayor carga de trabajo o cuando necesitan incorporar maquinaria de forma rápida. Además, disponer de una solución flexible ayuda a mantener el servicio activo en todo momento.</p>
+        <p>Cada servicio de recogida de residuos tiene unas necesidades diferentes. Por eso en Netalm trabajamos tanto la venta como el alquiler de camiones recolectores de basura, ayudando a encontrar la solución más adecuada según el volumen de trabajo, el tipo de recogida o la capacidad necesaria.</p>
+        <p>Tanto si se trata de renovar una flota municipal como de reforzar un servicio puntual, ofrecemos asesoramiento personalizado para encontrar el vehículo más adecuado para cada proyecto.</p>
       </div>
     </div>
     <div class="seo-block">
       <div class="seo-block-label">
-        <div class="seo-block-tag">Aplicaciones</div>
-        <div class="seo-block-title">Barredoras viales para calles, carreteras y espacios públicos</div>
+        <div class="seo-block-tag">Configuraciones</div>
+        <div class="seo-block-title">Camiones de carga lateral, trasera y compactadores</div>
       </div>
       <div class="seo-block-content">
-        <p>Las barredoras viales se utilizan diariamente en calles, avenidas, carreteras, polígonos industriales, aceras, aparcamientos y espacios públicos donde la suciedad se acumula constantemente.</p>
-        <p>Elegir correctamente la maquinaria permite optimizar tiempos, mejorar resultados y trabajar de forma más eficiente.</p>
-        <p>En Netalm ayudamos a encontrar la barredora vial que mejor se adapta a cada tipo de superficie y condiciones de trabajo.</p>
+        <p>Existen diferentes tipos de camiones recolectores de basura según el sistema de carga y el tipo de servicio que se realiza.</p>
+        <p>Disponemos de camiones de carga lateral, carga trasera y camiones compactadores orientados a recogida urbana e industrial.</p>
+        <p>Cada configuración ofrece ventajas específicas dependiendo de la ruta, la frecuencia de recogida o el tipo de contenedor utilizado. Elegir correctamente el vehículo permite optimizar tiempos de trabajo y mejorar la eficiencia operativa diaria.</p>
       </div>
     </div>
     <div class="seo-block">
       <div class="seo-block-label">
-        <div class="seo-block-tag">Zonas de uso</div>
-        <div class="seo-block-title">Zonas donde se pueden usar las barredoras viales</div>
+        <div class="seo-block-tag">Rendimiento</div>
+        <div class="seo-block-title">Capacidad, compactación y configuración del vehículo</div>
       </div>
       <div class="seo-block-content">
-        <p>Este tipo de maquinaria puede trabajar en una gran variedad de espacios exteriores: municipios, urbanizaciones, puertos, áreas logísticas, recintos industriales o grandes superficies urbanas.</p>
-        <p>Dependiendo del acceso, el tamaño de la zona o el tipo de suciedad, puede ser más recomendable una barredora compacta, articulada o de mayores dimensiones. Por eso cada proyecto se estudia de forma individual antes de proponer una solución.</p>
+        <p>La capacidad de carga, el sistema de compactación y la configuración del camión recolector son aspectos clave para garantizar un servicio eficiente.</p>
+        <p>No todas las rutas ni todos los municipios requieren el mismo tipo de vehículo. Por eso analizamos cada necesidad de forma individual, teniendo en cuenta factores como accesos, kilómetros diarios, volumen de residuos o frecuencia de recogida para recomendar la mejor opción posible.</p>
+      </div>
+    </div>
+    <div class="seo-block">
+      <div class="seo-block-label">
+        <div class="seo-block-tag">Flotas</div>
+        <div class="seo-block-title">Camiones recolectores para ayuntamientos y empresas</div>
+      </div>
+      <div class="seo-block-content">
+        <p>Los camiones recolectores de basura forman parte de servicios esenciales que necesitan continuidad y fiabilidad.</p>
+        <p>Trabajamos con ayuntamientos, empresas de limpieza, concesionarias y operadores medioambientales que buscan vehículos preparados para el trabajo diario y capaces de adaptarse a diferentes entornos urbanos e industriales.</p>
       </div>
     </div>
     <div class="seo-block">
       <div class="seo-block-label">
         <div class="seo-block-tag">Soporte técnico</div>
-        <div class="seo-block-title">Servicio técnico, mantenimiento y soporte postventa</div>
+        <div class="seo-block-title">Revisión, mantenimiento y soporte técnico</div>
       </div>
       <div class="seo-block-content">
-        <p>Además de la venta y alquiler de barredoras viales, en Netalm ofrecemos servicio técnico, mantenimiento y soporte postventa para ayudar a que la maquinaria esté siempre operativa.</p>
-        <p>También disponemos de piezas de recambio y máquinas de sustitución para reducir al máximo posibles paradas de servicio.</p>
-        <p>Nuestro objetivo es acompañar al cliente más allá de la entrega de la máquina y ofrecer una solución completa y controlada.</p>
-        <p>Además, realizamos formaciones para enseñar el manejo y funcionamiento de las barredoras viales, ayudando a que los equipos trabajen de forma más eficiente y segura desde el primer día.</p>
+        <p>Además de la venta y alquiler de camiones recolectores de basura, en Netalm ofrecemos mantenimiento, soporte técnico y acompañamiento postventa para ayudar a mantener la flota siempre operativa.</p>
+        <p>También disponemos de servicio técnico, piezas de recambio y soluciones de sustitución para reducir al máximo posibles paradas.</p>
+        <p>Además, realizamos formaciones para ayudar a los equipos a conocer mejor el funcionamiento del vehículo y trabajar de forma más segura y eficiente.</p>
       </div>
     </div>
   </div>
 </div>
+<section class="cta-section reveal" id="contacto">
+  <div class="cta-inner">
+    <div>
+      <span class="cta-tag">Solicita presupuesto</span>
+      <h2 class="cta-title">Solicita presupuesto para tu <em>camión recolector de basura</em></h2>
+      <p class="cta-desc">Contacta con nuestro equipo y te ayudaremos a encontrar el camión recolector de basura que mejor encaja con tu servicio, tipo de recogida y necesidades operativas, tanto para compra como para alquiler.</p>
+    </div>
+    <div class="cta-right">
+      <a class="cta-contact-item" href="tel:+34964765607">
+        <span class="cta-contact-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.77.62 2.61a2 2 0 0 1-.45 2.11L8 9.72a16 16 0 0 0 6.28 6.28l1.28-1.28a2 2 0 0 1 2.11-.45c.84.29 1.71.5 2.61.62A2 2 0 0 1 22 16.92z"/></svg></span>
+        <span class="cta-contact-text"><span class="cta-contact-label">Teléfono</span><span class="cta-contact-val">+34 964 765 607</span></span>
+      </a>
+      <a class="cta-contact-item" href="mailto:info@netalm.com">
+        <span class="cta-contact-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+        <span class="cta-contact-text"><span class="cta-contact-label">Email</span><span class="cta-contact-val">info@netalm.com</span></span>
+      </a>
+      <a class="btn-red-full" href="mailto:info@netalm.com">Solicitar presupuesto <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </div>
+  </div>
+</section>
 
 <!-- FOOTER -->
 <footer>
