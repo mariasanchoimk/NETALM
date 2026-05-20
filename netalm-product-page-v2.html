@@ -483,6 +483,11 @@ footer { background: var(--graphite); border-top: 3px solid var(--red); }
 .footer-made { font-size: 11px; color: rgba(255,255,255,0.15); letter-spacing: 0.05em; }
 .footer-made em { color: var(--red); font-style: normal; }
 
+  .social-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px;}
+.social-link{width:38px!important;height:38px!important;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.035);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.48);text-decoration:none;transition:background .18s,border-color .18s,color .18s,transform .18s;}
+.social-link:hover{background:rgba(212,43,43,.12)!important;border-color:rgba(212,43,43,.42);color:var(--white);transform:translateY(-2px);}
+.social-link svg{width:17px;height:17px;fill:currentColor;}
+
 /* ── SCROLL FADE ── */
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
 .reveal.visible { opacity: 1; transform: none; }
